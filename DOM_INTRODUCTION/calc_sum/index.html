@@ -1,0 +1,43 @@
+<html>
+    
+    <style>
+        .container{
+            background-color: red;
+            margin:10px;
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+        function populatediv(){
+            const element=document.getElementById("finalsum")
+            // console.log(element)
+            const a=document.getElementById("firstnumber").value
+            const b=document.getElementById("secondnumber").value
+            element.innerHTML=parseInt(a)+parseInt(b);
+        }
+    </script>
+
+    <body>
+
+        <div class="container" id="container1">
+            hi there
+        </div>
+        <div class="container" id="container2">
+            hi there2
+        </div>
+
+
+        <input type="text" placeholder="first number" id="firstnumber"></input>
+        <br>
+        <input type="text" placeholder="second number" id="secondnumber"></input>
+        <br>
+        <button onclick="populatediv()">calculate sum</button>
+
+        <div id="finalsum"></div>
+
+
+
+
+    </body>
+</html>

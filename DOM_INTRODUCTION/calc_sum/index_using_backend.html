@@ -1,0 +1,47 @@
+<html>
+    <script>
+        function populatediv(){
+            // const element=document.getElementById("finalsum")
+            // console.log(element)
+            const a=document.getElementById("firstnumber").value
+            const b=document.getElementById("secondnumber").value
+            // element.innerHTML=parseInt(a)+parseInt(b); 
+            //instead this line hit the backend server and then compute the value
+            // https://sum-server.100xdevs.com/sum?a=1&b=2
+            const res=fetch("https://sum-server.100xdevs.com/sum?a="+a+"&b="+b)
+                .then(function(response){
+                    console.log(response)
+                    //response is a promise here default for fetch
+                    response.text() //text or json
+                        .then(function(ans){
+                            console.log(ans);
+                            document.getElementById("finalsum").innerHTML=ans;
+                        })
+                })
+
+        }
+
+        async function populatediv2(){
+            const a=document.getElementById("firstnumber").value
+            const b=document.getElementById("secondnumber").value
+            const res=await fetch("https://sum-server.100xdevs.com/sum?a="+a+"&b="+b)
+            const ans=await res.text();
+            document.getElementById("finalsum").innerHTML=ans;
+        }
+    </script>
+
+    <body>
+
+        <input type="text" placeholder="first number" id="firstnumber"></input>
+        <br>
+        <input type="text" placeholder="second number" id="secondnumber"></input>
+        <br>
+        <button onclick="populatediv()">calculate sum</button>
+
+        <div id="finalsum"></div>
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,24 @@
+--- c++ is compiled lang ..
+
+    c++ file is named a 
+    we run it like 
+
+    (g++ a.cpp -o temp ) and ./temp
+
+    we can send this temp file to anyone to run our code on their machine
+
+    temp is a binary file 
+
+    (need to compile , and run .... dont compile if there is error )
+
+--- js is interpreted language
+
+    for js file named a 
+    we run it like 
+
+    node a.js //and we will get the output
+
+    (go line by line , can run partially if error comes)
+    ex- js, python 
+
+     

@@ -1,0 +1,6 @@
+js can only use one core at a time it is single threaded ,
+
+this is hwy it is considered to be a bad lang for scalable systems 
+
+there is a way to use all cores of your machine
+

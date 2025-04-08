@@ -1,0 +1,52 @@
+<!-- //whenever we enter a input a request should go -->
+
+<!-- after 1000ms request should go out after we typed last 
+    character-->
+<html>
+    <script>
+        let timeout=null;
+        function debouncepopulatediv(){
+            clearTimeout(timeout)
+            timeout=setTimeout(()=>{
+                populatediv()
+            },1000)
+        }
+
+        function populatediv(){
+            // const element=document.getElementById("finalsum")
+            // console.log(element)
+            const a=document.getElementById("firstnumber").value
+            const b=document.getElementById("secondnumber").value
+            // element.innerHTML=parseInt(a)+parseInt(b); 
+            //instead this line hit the backend server and then compute the value
+            // https://sum-server.100xdevs.com/sum?a=1&b=2
+            const res=fetch("https://sum-server.100xdevs.com/sum?a="+a+"&b="+b)
+                .then(function(response){
+                    console.log(response)
+                    //response is a promise here default for fetch
+                    response.text() //text or json
+                        .then(function(ans){
+                            console.log(ans);
+                            document.getElementById("finalsum").innerHTML=ans;
+                        })
+                })
+
+        }
+
+        
+    </script>
+
+    <body>
+
+        <input oninput="debouncepopulatediv()" type="text" placeholder="first number" id="firstnumber"></input>
+        <br>
+        <input oninput="debouncepopulatediv()" type="text" placeholder="second number" id="secondnumber"></input>
+        <br>
+       
+        <div id="finalsum"></div>
+
+
+
+
+    </body>
+</html>
