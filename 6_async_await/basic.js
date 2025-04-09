@@ -1,3 +1,9 @@
+// If you’re using await fetch(...), your function waits for the result inside that async function, but the main thread is still free to handle other things (like UI rendering, other events).
+
+// So, no — the thread does not get stopped or blocked. Only synchronous (blocking) code like while(true) loops or big computations would freeze the main thread.
+
+
+
 // function asyncfunction(){
 //     return new Promise(function(){
 //         //do some async logic here
