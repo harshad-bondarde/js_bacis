@@ -1,3 +1,4 @@
+// Properties defined using Symbols do not show up in for...in loops or Object.keys(), which makes them great for hiding internal values.
 const mySym=Symbol("key1") //to declare a symbol
 
 const jsuser={
