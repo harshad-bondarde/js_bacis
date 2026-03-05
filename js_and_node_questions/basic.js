@@ -64,10 +64,60 @@
 
 
 // 10)
-// == this first converts operands to same types and then compares them
+// == this first converts operands to same types and then compares them (COMPARES VALUES)
 //example: 1 == '1' // true   false==0 // true
-// === this compares both value and type, so no conversion is done
+// === this compares both value and type, so no conversion is done (COMPARES VALUES AND TYPE)
 
+// 11)
+// hoistedVariable = 3;
+// console.log(hoistedVariable); // outputs 3 even when the variable is declared after it is initialized	
+// var hoistedVariable;
+
+// hoistedFunction();  // Outputs " Hello world! " even when the function is declared after calling
+//
+// function hoistedFunction(){ 
+//   console.log(" Hello world! ");
+// } 
+
+// Hoisting takes place in the local scope as well
+// function doSomething(){
+//   x = 33;
+//   console.log(x);
+//   var x;
+// } 
+
+// "use strict";
+// x = 23; // Gives an error since 'x' is not declared
+// var x; 
+
+// 12)
+// typeof of NaN will return a Number. (Not-a-Number)
+
+// 10. What is an Immediately Invoked Function in JavaScript?
+//  is a function that runs as soon as it is defined.
+// first () tells compiler that it’s a function expression. second () calls the function immediately.
+// 
+
+//13) 13. Explain “this” keyword.
+// The value of the “this” keyword will always depend on the object that is invoking the function.\
+
+// function doSomething() {
+//   console.log(this);
+// }
+// doSomething();
+// Since the function is invoked in the global context, the function is a property of the global object. this will print window object 
+
+// var obj = {
+//     name:  "vivek",
+//     getName: function(){
+//     console.log(this.name);
+//   }
+// }
+// obj.getName();
+// Here, the function is invoked as a method of the obj object. So, this will refer to the obj object and print "vivek".
+
+// 23. What are callbacks?
+// A callback is a function that will be executed after another function gets executed. In javascript, functions are treated as first-class citizens, they can be used as an argument of another function, can be returned by another function, and can be used as a property of an object.
 
 //node questions -----------------------------------------------------------------------------------------------
 
@@ -75,7 +125,20 @@
                 //   non-blocking operations - asynchronous op
 
     // if current request is added in event queue and then in event loop 
+        //Event Loop sees blocking operation
+        // It must be executed directly on the main thread, OR sent to the thread pool
+        // That thread is blocked (busy) until the work completes
+        // The thread pool has only 4 threads by default.
+        // So:
+        // If 4 blocking requests come at the same time → all threads get busy
+        // 5th request must wait, slowing down the server
     // if the operation is non blocking then it will be processed and response will be sent to client
+        // Event Loop sees non-blocking operation
+        // It delegates it to the libuv thread pool (or OS)
+        // Event Loop does NOT wait, instead moves to next request
+        // When operation finishes, a callback is pushed to event queue
+
+// Event Loop picks it and sends the response back to client
     // if the operation is blocking then it will be sent in thread(limited ) pool and thread will be blocked until the operation is completed
     // console.log("1")
     // fs.readFileSync('file.txt', 'utf8', (err, data) => {

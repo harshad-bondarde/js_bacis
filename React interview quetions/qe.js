@@ -78,6 +78,5 @@
 // map(): Returns a new array, which can contain JSX elements to be rendered. This is the preferred method for rendering lists in React.
 // forEach(): Does not return a new array, so it cannot directly produce elements for rendering. It’s only useful for side effects.
 
-
 // What is React Router and why is it used?
 // React Router is a library that enables client-side routing in React applications. It allows you to create single-page applications (SPAs) where navigation between views happens without a full page reload, making apps faster and smoother.
